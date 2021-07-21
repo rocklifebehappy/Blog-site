@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'home',
     'User',
     'crispy_forms',
+    'django_cleanup'
 ]
 
 MIDDLEWARE = [
@@ -138,3 +139,6 @@ MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media")
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+LOGIN_REDIRECT_URL = 'home'
+LOGIN_URL = "login"

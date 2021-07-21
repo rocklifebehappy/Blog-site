@@ -13,14 +13,14 @@
                     {{ form|crispy }}
                 </fieldset>
                 <div>
-                    <button class="btn btn-success">Sign Up</button>
+                    <button class="btn btn-outline-success" type="submit">Sign Up</button>
                 </div>
             </form>
         </div>
         <div class="p-4 p-md-5 mb-4 rounded row justify-content-center">
             <div class="col-md-6 px-0">
             <small class="text-muted">
-                <p>Already have an Account?</p><a href="">Sign in</a>
+                <p>Already have an Account?</p><a href="{% url 'login' %}">Sign in</a>
             </small>
         </div>
         </div>

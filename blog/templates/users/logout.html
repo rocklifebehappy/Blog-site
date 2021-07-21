@@ -1,0 +1,20 @@
+{% include 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+{% endblock %}
+<div class="container border-top">
+    <div class="p-4 p-md-5 mb-4 rounded row justify-content-center">
+        <div class="col-md-6 p-3 border border rounded ">
+            <h5>You have been logged out!</h5>
+        </div>
+        <div class="p-4 p-md-5 mb-4 rounded row justify-content-center">
+            <div class="col-md-6 px-0">
+                <small class="text-muted">
+                    <a href="{% url 'login' %}">Log in again</a>
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
