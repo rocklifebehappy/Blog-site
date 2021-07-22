@@ -6,28 +6,33 @@
 
 {% endblock %}
 <div class="container border-top">
-    <div class="p-4 p-md-5 mb-4 rounded row justify-content-center">
-        <div class="col-md-4 p-3 mr-3 border border rounded">
+    <div class="p-4 p-md-5 mb-4 p-2 rounded row justify-content-center">
+        <div class="col-md-4 mr-3 p-2 border border rounded">
             <div class="container">
-                <div class="p-2 rounded row justify-content-center">
-                    <img src="{{ user.profile.image.url }}" width="80%">
+                <div class="rounded row justify-content-center">
+                    <img class="rounded-circle" src="{{ user.profile.image.url }}" width="200px">
                 </div>
-                <div class="p-2 rounded row justify-content-center">
-                    <h6>Full name: </h6><p class="lead"> {{ user.profile.fullname }} </p>
+                <div class="rounded row justify-content-center">
+                    <h6>Full name: </h6>
+                    <p class="lead"> {{ user.profile.fullname }} </p>
                 </div>
-                <div class="p-2 row justify-content-center">
-                    <h6>Username: </h6><p class="lead"> {{ user.username }} </p>
+                <div class="row justify-content-center">
+                    <h6>Username: </h6>
+                    <p class="lead"> {{ user.username }} </p>
                 </div>
-                <div class="p-2 row justify-content-center">
-                    <h6>Email: </h6><p class="lead"> {{ user.email }} </p>
+                <div class="row justify-content-center">
+                    <h6>Email: </h6>
+                    <p class="lead"> {{ user.email }} </p>
                 </div>
-                <div class="p-2 row justify-content-center">
-                    <h6>Address: </h6><p class="lead"> {{ user.profile.address }} </p>
+                <div class="row justify-content-center">
+                    <h6>Address: </h6>
+                    <p class="lead"> {{ user.profile.address }} </p>
                 </div>
-                <div class="p-2 row justify-content-center">
-                    <h6>Status: </h6><p class="lead"> {{ user.profile.status }} </p>
+                <div class="row justify-content-center">
+                    <h6>Status: </h6>
+                    <p class="lead"> {{ user.profile.status }} </p>
                 </div>
-                <div class="p-2 row justify-content-around">
+                <div class=" row justify-content-around">
                     <div class="col-md-12 p-3">
                         <a class="btn btn-sm btn-outline-secondary" href="{% url 'edit_profile' %}">
                             <img width="30px" src="{% static 'images/edit.png' %}">Edit profile</a>
@@ -35,8 +40,30 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-8 p-3 border border rounded ">
-
+        <div class="col-md-8 border rounded">
+            <div class="p-md-12 row justify-content-around">
+                <div class="col-md-12 d-flex flex-row-reverse p-2">
+                    <a href="{% url 'post-create' %}" class="btn btn-outline-secondary"><img class="p-1" width="30px"
+                                                                                             src="{% static 'images/add.png' %}">Add
+                        Post</a>
+                </div>
+            </div>
+            <div class="p-md-12 m-2 shadow-sm row justify-content-around">
+                <div class="col-md-8">
+                    <strong class="d-inline-block mb-2 text-success">Design</strong>
+                    <h3 class="mb-0">Post title</h3>
+                    <div class="mb-1 text-muted">Nov 11</div>
+                    <p class="mb-auto" style="height: 70px; overflow: hidden;">This is a wider card with supporting text
+                        below as a natural lead-in to
+                        additional content.</p>
+                    <a class="btn btn-outline-secondary">Update Post</a>
+                    <a class="btn btn-outline-danger">Delete Post</a>
+                    <a href="#" class="">Continue reading</a>
+                </div>
+                <div class="col-md-4">
+                    <img width="200px" src="">
+                </div>
+            </div>
         </div>
     </div>
 </div>
