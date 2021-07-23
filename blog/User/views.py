@@ -29,18 +29,13 @@ def register(request):
 
 
 @login_required
-def profile(request):
+def edit_profile(request):
 	"""
-	The profile of the registered user.
+	Redirects to the profile edit page.
 
 	:param request: HTTP request sent by the user.
 	:return: render (returns HTTP response to the HTTP request)
 	"""
-	return render(request, "users/profile.html", context={})
-
-
-@login_required
-def edit_profile(request):
 	u_form = UserUpdateForm(request.POST, instance=request.user)
 	p_form = ProfileUpdateForm(request.POST, instance=request.user.profile)
 	if request.method == 'POST':

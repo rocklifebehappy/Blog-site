@@ -6,10 +6,25 @@ from .models import Profile
 
 @receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
+	"""
+	It creates the profile whenever a user is created.
+	:param sender:
+	:param instance:
+	:param created:
+	:param kwargs:
+	:return:
+	"""
 	if created:
 		Profile.objects.create(user=instance)
 
 
 @receiver(post_save, sender=User)
 def save_profile(sender, instance, **kwargs):
+	"""
+	Saves the profile after profile is created.
+	:param sender:
+	:param instance:
+	:param kwargs:
+	:return:
+	"""
 	instance.profile.save()

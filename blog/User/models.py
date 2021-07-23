@@ -6,6 +6,11 @@ from PIL import Image
 # Create your models here.
 
 class Profile(models.Model):
+	"""
+	Model for profile.
+	Attributes:
+		user
+	"""
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	fullname = models.CharField(max_length=40, blank=True, null=True)
 	address = models.CharField(max_length=40, blank=True, null=True)
@@ -16,6 +21,11 @@ class Profile(models.Model):
 		return self.user.username
 
 	def save(self):
+		"""
+		Overrides the same method.
+		To reduce the size of the image.
+		:return:
+		"""
 		super().save()
 
 		img = Image.open(self.image.path)

@@ -1,6 +1,6 @@
 {% include 'base.html' %}
 {% load static %}
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -80,43 +80,67 @@
     </div>
 
     <div class="row g-5">
-        {% for post in posts %}
-        <a href="{% url 'post-detail' post.id %}" style="display: block;">
-            <div class="card_shadow col-md-8">
-                <div class="row justify-content-around">
-                    <div class="col-sm-6">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <img style="padding: 0px; width: 40px; height: 40px; line-height: 50px; border-radius: 50%;
+        <div class="col-md-8">
+            {% for post in posts %}
+            <div class="row justify-content-around card_shadow p-4 mb-2"
+                 onclick="location.href='{% url 'post-detail' post.id %}';">
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img style="padding: 0px; width: 40px; height: 40px; line-height: 50px; border-radius: 50%;
                             border: 2px solid #39FF14;" src="{{ post.author.profile.image.url }}">
-                            </div>
-                            <div class="col-sm-4 mt-2 text-left">
-                                <h5>{{ post.author.username }}</h5>
-                            </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <h4>{{ post.title}}</h4>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <p>{{post.contents|truncatewords:10}}</p>
-                        </div>
-                        <div class="row">
-                            {{ post.date_published|date:"F d, Y" }}
+                        <div class="col-sm-4 mt-2 text-left">
+                            <h5>{{ post.author.username }}</h5>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        {% if post.image.url %}
-                        <img width="200px" src="{{post.image.url}}">
-                        {% endif %}
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h4>{{ post.title}}</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p>{{post.contents|truncatewords:10}}</p>
+                    </div>
+                    <div class="row">
+                        {{ post.date_published|date:"F d, Y" }}
                     </div>
                 </div>
+                <div class="col-sm-4">
+                    {% if post.image.url %}
+                    <img width="200px" src="{{post.image.url}}">
+                    {% endif %}
+                </div>
             </div>
-        </a>
-        {% endfor %}
+            {% endfor %}
+            {% if is_paginated %}
+            {% if page_obj.has_previous %}
+            <a href="?page=1" class="btn btn-outline-secondary">First Page</a>
+            <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-outline-secondary">Previous</a>
+            {% endif %}
+            {% for num in page_obj.paginator.page_range %}
+            {% if page_obj.number == num %}
+            <a class="btn btn-secondary" href="?page={{ num }}">{{num}}</a>
+            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+            <a class="btn btn-outline-secondary" href="?page={{ num }}">{{num}}</a>
+            {% endif %}
+            {% endfor %}
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" class="btn btn-outline-secondary">Next Page</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}" class="btn btn-outline-secondary">Last</a>
+            {% endif %}
+            {%endif%}
+        </div>
         <div class="col-md-4 border rounded">
             <h1>about</h1>
+            <p class="lead">
+                Technology has many effects. It has helped develop more advanced economies (including today's global
+                economy) and has allowed the rise of a leisure class. Many technological processes produce unwanted
+                by-products known as pollution and deplete natural resources to the detriment of Earth's environment.
+                Innovations have always influenced the values of a society and raised new questions in the ethics of
+                technology. Examples include the rise of the notion of efficiency in terms of human productivity, and
+                the challenges of bioethics.
+            </p>
         </div>
     </div>
 

@@ -3,6 +3,11 @@ from .models import World, InformationTechnology, RemoteDevelopment, Agriculture
 	EnvironmentalTechnology
 
 # Register your models here.
+"""
+This admin.py is used to register the model in the admin site.
+Check in documentation for more information.
+"""
+
 admin.site.register(World)
 admin.site.register(InformationTechnology)
 admin.site.register(RemoteDevelopment)

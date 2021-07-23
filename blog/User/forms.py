@@ -5,6 +5,10 @@ from .models import Profile
 
 
 class UserRegistrationForm(UserCreationForm):
+	"""
+	Form for the user registration.
+	:model : 'auth.user'
+	"""
 	email = forms.EmailField()
 
 	class Meta:
@@ -13,6 +17,10 @@ class UserRegistrationForm(UserCreationForm):
 
 
 class UserUpdateForm(forms.ModelForm):
+	"""
+	Form for the user edit.
+	:model : 'auth.user'
+	"""
 	email = forms.EmailField()
 
 	class Meta:
@@ -21,6 +29,10 @@ class UserUpdateForm(forms.ModelForm):
 
 
 class ProfileUpdateForm(forms.ModelForm):
+	"""
+	Form for the profile update of the user.
+	:model : 'auth.user.profile'
+	"""
 	class Meta:
 		model = Profile
 		fields = ["image", "fullname", "address", "status"]
